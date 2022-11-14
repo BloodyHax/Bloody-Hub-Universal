@@ -1,0 +1,218 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "🔴BloodyHub🟥 | Slap Battles👏", HidePremium = false, SaveConfig = true, IntroText = "Bloody Hub" ,ConfigFolder = "🔴BloodyHub🟥"})
+
+--Values
+_G.Golden = true
+_G.Nogolden = true
+_G.Therock = true
+_G.GhostON = true
+_G.GhostOFF = true
+_G.ByPass = true
+_G.PhaseA = true
+_G.AntiTime = true
+_G.AntiMail = true
+_G.Bob = true
+
+
+--Functions
+function Golden()
+    local args = {
+        [1] = true
+    }
+    
+    game:GetService("ReplicatedStorage").Goldify:FireServer(unpack(args))
+end
+
+function Therock()
+game:GetService("ReplicatedStorage").Rockmode:FireServer()
+end
+
+function NoGolden()
+	local args = {
+	    [1] = false,
+	    [2] = BrickColor.new(1003)
+	}
+	
+	game:GetService("ReplicatedStorage").Goldify:FireServer(unpack(args))
+end
+
+function GhostON()
+	game:GetService("ReplicatedStorage").Ghostinvisibilityactivated:FireServer()
+end
+
+function GhostOFF()
+	game:GetService("ReplicatedStorage").Ghostinvisibilitydeactivated:FireServer()
+end
+
+function Bypass()
+		local Namecall
+	Namecall = hookmetamethod(game, '__namecall', function(self, ...)
+  	 if getnamecallmethod() == 'FireServer' and tostring(self) == 'Ban' then
+  	     return
+  	 elseif getnamecallmethod() == 'FireServer' and tostring(self) == 'WalkSpeedChanged' then
+  	     return
+ 	  elseif getnamecallmethod() == 'FireServer' and tostring(self) == 'AdminGUI' then
+ 	      return
+ 	  end
+ 	  return Namecall(self, ...)
+	end)
+end
+
+function PhaseA()
+	game:GetService("ReplicatedStorage").PhaseA:FireServer()
+end
+
+function AntiTime()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+end
+
+function AntiMail()
+	game.ReplicatedStorage.MailPopup:Destroy()
+end
+
+function Bob()
+    local args = {
+        [1] = true
+    }
+    
+    game:GetService("ReplicatedStorage").Duplicate:FireServer(unpack(args))
+    wait()
+    local args = {
+        [1] = game:GetService("Players").LocalPlayer.Character,
+        [2] = false
+    }
+    
+    game:GetService("ReplicatedStorage").HumanoidDied:FireServer(unpack(args))
+end
+
+--Tabs
+local AbilityTab = Window:MakeTab({
+	Name = "Ability",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local CombatTab = Window:MakeTab({
+	Name = "Combat",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local MiscTab = Window:MakeTab({
+	Name = "Misc",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+
+--KeyBind
+AbilityTab:AddBind({
+	Name = "Golden [GodMode]",
+	Default = Enum.KeyCode.C,
+	Hold = false,
+	Callback = function()
+		_G.Golden = true
+        Golden()
+	end    
+})
+
+AbilityTab:AddBind({
+	Name = "Diamond [Use on Battle]",
+	Default = Enum.KeyCode.F,
+	Hold = false,
+	Callback = function()
+		_G.Therock = true
+        Therock()
+	end    
+})
+
+AbilityTab:AddBind({
+	Name = "UnGolden [BOB?!]",
+	Default = Enum.KeyCode.V,
+	Hold = false,
+	Callback = function()
+		_G.Nogolden = Values
+		NoGolden()
+	end    
+})
+
+AbilityTab:AddBind({
+	Name = "GhostOFF [now u can see me]",
+	Default = Enum.KeyCode.T,
+	Hold = false,
+	Callback = function()
+		_G.GhostOFF = Value
+		GhostOFF()
+	end    
+})
+
+AbilityTab:AddBind({
+	Name = "GhostON [and now u cant see me]",
+	Default = Enum.KeyCode.R,
+	Hold = false,
+	Callback = function()
+		_G.GhostON = Value
+		GhostON()
+	end    
+})
+
+AbilityTab:AddBind({
+	Name = "PhaseA [UNDERTALE]",
+	Default = Enum.KeyCode.Q,
+	Hold = false,
+	Callback = function()
+		_G.PhaseA = Value
+		PhaseA()
+	end    
+})
+
+--Buttons
+
+MiscTab:AddButton({
+	Name = "AntiCheat ByPass",
+	Callback = function()
+		_G.ByPass = Value
+		Bypass()
+  	end    
+})
+
+CombatTab:AddButton({
+	Name = "Slap Aura",
+	Callback = function()
+		_G.Aura = Value
+		Aura()
+  	end    
+})
+
+
+MiscTab:AddButton({
+	Name = "Move On timestop",
+	Callback = function()
+		_G.AntiTime = true
+		AntiTime()
+  	end    
+})
+
+MiscTab:AddButton({
+	Name = "AntiMail",
+	Callback = function()
+		_G.AntiMail = true
+		AntiMail()
+  	end    
+})
+
+MiscTab:AddButton({
+	Name = "Bob :)",
+	Callback = function()
+		_G.Bob = true
+		Bob()
+  	end    
+})
+
+--Labels
+
+MiscTab:AddLabel("Bob Just spawn replica and kills you")
+
+
+OrionLib:Init()
