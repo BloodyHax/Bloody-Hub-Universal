@@ -13,6 +13,8 @@ _G.AntiTime = true
 _G.AntiMail = true
 _G.Bob = true
 _G.Royale = true
+_G.HitBox = true
+_G.Reach = true
 
 
 --Functions
@@ -91,6 +93,15 @@ function Royale()
                 game:HttpGet("https://raw.githubusercontent.com/cheesynob39/Roblox-Scripts/main/Slap_Royale.lua"
                     ))()
 end
+
+function HitBox()
+	loadstring(game:HttpGet(("https://gist.githubusercontent.com/stellar-4242/430ef3087d8d87eb306ca03e728ffbb8/raw/798429dd908b1f4471a1fa569ff62c5e5a93ec61/SLAP.LUA")))()
+end
+
+function Reach()
+	loadstring(game:HttpGet("https://pastebin.com/raw/jxS60JEF", true))()
+end
+
 
 --Tabs
 local AbilityTab = Window:MakeTab({
@@ -184,15 +195,6 @@ MiscTab:AddButton({
   	end    
 })
 
-CombatTab:AddButton({
-	Name = "Slap Aura",
-	Callback = function()
-		_G.Aura = Value
-		Aura()
-  	end    
-})
-
-
 MiscTab:AddButton({
 	Name = "Move On timestop",
 	Callback = function()
@@ -220,16 +222,37 @@ MiscTab:AddButton({
 MiscTab:AddButton({
 	Name = "Slap Royale Script",
 	Callback = function()
-      		_G.Royale = Value
-            Royale()
+      	_G.Royale = Value
+        Royale()
   	end    
 })
+
+CombatTab:AddButton({
+	Name = "HitBox Extender",
+	Callback = function()
+		_G.HitBox = Value
+		HitBox()
+  	end    
+})
+
+CombatTab:AddButton({
+	Name = "Glove Reach",
+	Callback = function()
+		_G.Reach = Value
+		Reach()
+  	end    
+})
+
 
 --Labels
 
 MiscTab:AddLabel("Bob Just spawn replica and kills you")
 
 MiscTab:AddLabel("Slap Royale Not Made by me")
+
+CombatTab:AddLabel("Reach dont work on some gloves")
+
+
 
 
 OrionLib:Init()
