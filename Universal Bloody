@@ -1,3 +1,6 @@
 if game.PlaceId == 6403373529 then
 loadstring(game:HttpGet("https://raw.githubusercontent.com/BloodyHax/Bloody-Hub-Universal/main/Slap%20Battles", true))()
 end
+if game.PlaceId == 537413528 then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/BloodyHax/Bloody-Hub-Universal/main/Build%20a%20Boat", true))()
+end
