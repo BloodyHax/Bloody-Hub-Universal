@@ -12,6 +12,7 @@ _G.PhaseA = true
 _G.AntiTime = true
 _G.AntiMail = true
 _G.Bob = true
+_G.Royale = true
 
 
 --Functions
@@ -83,6 +84,12 @@ function Bob()
     }
     
     game:GetService("ReplicatedStorage").HumanoidDied:FireServer(unpack(args))
+end
+
+function Royale()
+    loadstring(
+                game:HttpGet("https://raw.githubusercontent.com/cheesynob39/Roblox-Scripts/main/Slap_Royale.lua"
+                    ))()
 end
 
 --Tabs
@@ -210,9 +217,19 @@ MiscTab:AddButton({
   	end    
 })
 
+MiscTab:AddButton({
+	Name = "Slap Royale Script",
+	Callback = function()
+      		_G.Royale = Value
+            Royale()
+  	end    
+})
+
 --Labels
 
 MiscTab:AddLabel("Bob Just spawn replica and kills you")
+
+MiscTab:AddLabel("Slap Royale Not Made by me")
 
 
 OrionLib:Init()
