@@ -1,0 +1,62 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "🔴BloodyHub🟥 | Jenga", HidePremium = false, SaveConfig = true, IntroText = "Bloody Hub" ,ConfigFolder = "🔴BloodyHub🟥"})
+
+--Values
+
+_G.Win = true
+_G.Kill = true
+_G.Inf = true
+
+--Functions
+
+function Win()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-65.7058868, 100.007507, -18.4363422, 0.999426663, -7.52370699e-09, 0.0338581614, 8.40692049e-09, 1, -2.59433399e-08, -0.0338581614, 2.62131081e-08, 0.999426663)
+end
+
+function Kill()
+    game.Workspace.Map.Classic.KillBrick:Remove()
+end
+
+function Inf()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end
+
+--Tabs
+local MainTab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+
+--Buttons
+
+MainTab:AddButton({
+	Name = "AutoWin",
+	Callback = function()
+        _G.Win = Value
+        Win()
+  	end    
+})
+
+MainTab:AddButton({
+	Name = "Remove KillPart",
+	Callback = function()
+        _G.Kill = true
+        Kill()
+  	end    
+})
+
+MainTab:AddButton({
+	Name = "Infinite Yield",
+	Callback = function()
+        _G.Inf = Value
+        Inf()
+  	end    
+})
+
+
+
+
+OrionLib:Init()
