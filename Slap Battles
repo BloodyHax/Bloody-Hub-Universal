@@ -15,6 +15,7 @@ _G.Bob = true
 _G.Royale = true
 _G.HitBox = true
 _G.Reach = true
+_G.AutoUno = true
 
 
 --Functions
@@ -102,6 +103,12 @@ function Reach()
 	loadstring(game:HttpGet("https://pastebin.com/raw/jxS60JEF", true))()
 end
 
+function AutoUno()
+	while wait(6) do
+		game:GetService("ReplicatedStorage").ReverseAbility:FireServer()
+	end
+end
+
 
 --Tabs
 local AbilityTab = Window:MakeTab({
@@ -187,6 +194,14 @@ AbilityTab:AddBind({
 
 --Buttons
 
+AbilityTab:AddButton({
+	Name = "InfiniteUNO",
+	Callback = function()
+		_G.AutoUno = Value
+		AutoUno()
+  	end    
+})
+
 MiscTab:AddButton({
 	Name = "AntiCheat ByPass",
 	Callback = function()
@@ -250,7 +265,9 @@ MiscTab:AddLabel("Bob Just spawn replica and kills you")
 
 MiscTab:AddLabel("Slap Royale Not Made by me")
 
-CombatTab:AddLabel("Reach dont work on some gloves")
+AbilityTab:AddLabel("InfiniteUNO cant be turned OFF")
+
+AbilityTab:AddLabel("And InfiniteUNO takes 6 seconds to start")
 
 
 
