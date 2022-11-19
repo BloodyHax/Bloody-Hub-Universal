@@ -16,6 +16,8 @@ _G.Royale = true
 _G.HitBox = true
 _G.Reach = true
 _G.AutoUno = true
+_G.FarmSlapples = true
+_G.Slapples = true
 
 
 --Functions
@@ -109,6 +111,13 @@ function AutoUno()
 	end
 end
 
+function FarmSlapples()
+	loadstring(game:HttpGet("https://pastebin.com/raw/9cxfguU6", true))()
+end
+
+function Slapples()
+	loadstring(game:HttpGet("https://pastebin.com/raw/rYYpHvDG", true))()
+end
 
 --Tabs
 local AbilityTab = Window:MakeTab({
@@ -125,6 +134,12 @@ local CombatTab = Window:MakeTab({
 
 local MiscTab = Window:MakeTab({
 	Name = "Misc",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local FarmTab = Window:MakeTab({
+	Name = "AutoFarm",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
@@ -258,6 +273,22 @@ CombatTab:AddButton({
   	end    
 })
 
+FarmTab:AddButton({
+	Name = "AutoFarm Slapples",
+	Callback = function()
+		_G.FarmSlapples = Value
+		FarmSlapples()
+  	end    
+})
+
+
+FarmTab:AddButton({
+	Name = "Take Slapples",
+	Callback = function()
+		_G.Slapples = Value
+		Slapples()
+  	end    
+})
 
 --Labels
 
@@ -268,6 +299,10 @@ MiscTab:AddLabel("Slap Royale Not Made by me")
 AbilityTab:AddLabel("InfiniteUNO cant be turned OFF")
 
 AbilityTab:AddLabel("And InfiniteUNO takes 6 seconds to start")
+
+FarmTab:AddLabel("AutoFarm Cant be Stopped")
+
+FarmTab:AddLabel("AutoFarm Take 10 seconds to start")
 
 
 
