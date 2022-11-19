@@ -23,7 +23,7 @@ function SlapON()
     end
 end
 function AI()
-	loadstring(game:HttpGet("https://pastebin.com/raw/JZc2wq9n", true))()
+	loadstring(game:HttpGet("https://pastebin.com/raw/8um5BeuT", true))()
 end
 
 
@@ -48,7 +48,8 @@ local AITab = Window:MakeTab({
 MainTab:AddButton({
 	Name = "AutoOfficial [ON]",
 	Callback = function()
-      		print("button pressed")
+		_G.OfficialON = Value
+		OfficialON()
   	end    
 })
 
@@ -56,7 +57,8 @@ MainTab:AddButton({
 MainTab:AddButton({
 	Name = "Auto 6Slap [ON]",
 	Callback = function()
-      		print("button pressed")
+		_G.SlapON = Value
+		SlapON()
   	end    
 })
 
@@ -64,7 +66,8 @@ MainTab:AddButton({
 AITab:AddButton({
 	Name = "AI Turn ON",
 	Callback = function()
-      		print("button pressed")
+		_G.AI = Value
+		AI()
   	end    
 })
 
