@@ -1,0 +1,74 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "🔴BloodyHub🟥 | UNOfficial", HidePremium = false, SaveConfig = true, IntroText = "Bloody Hub" ,ConfigFolder = "🔴BloodyHub🟥"})
+
+--Values
+
+_G.OfficialON = true
+_G.SlapON = true
+_G.AI = true
+
+
+--Functions
+
+function OfficialON()
+    while wait() do
+		game:GetService("ReplicatedStorage").Remotes.CallOfficial:FireServer()
+	end
+end
+
+
+function SlapON()
+    while wait() do
+        game:GetService("ReplicatedStorage").Remotes.SlapOnSix:FireServer()
+    end
+end
+function AI()
+	loadstring(game:HttpGet("https://pastebin.com/raw/JZc2wq9n", true))()
+end
+
+
+--Tabs
+
+local MainTab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local AITab = Window:MakeTab({
+	Name = "AutoPlayer [AI]",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+
+--Buttons
+
+MainTab:AddButton({
+	Name = "AutoOfficial [ON]",
+	Callback = function()
+      		print("button pressed")
+  	end    
+})
+
+
+MainTab:AddButton({
+	Name = "Auto 6Slap [ON]",
+	Callback = function()
+      		print("button pressed")
+  	end    
+})
+
+
+AITab:AddButton({
+	Name = "AI Turn ON",
+	Callback = function()
+      		print("button pressed")
+  	end    
+})
+
+
+
+
+OrionLib:Init()
