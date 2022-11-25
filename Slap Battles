@@ -64,7 +64,7 @@ CombatTab1:NewButton("Glove Reach", "like thick glove but better", function()
 end)
 
 CombatTab1:NewButton("HitBox Extender", "F A T people", function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/jxS60JEF", true))()
+	loadstring(game:HttpGet(("https://gist.githubusercontent.com/stellar-4242/430ef3087d8d87eb306ca03e728ffbb8/raw/798429dd908b1f4471a1fa569ff62c5e5a93ec61/SLAP.LUA")))()
 end)
 
 AutofarmTab1:NewButton("take Slapples", "take slapples once", function()
