@@ -12,6 +12,9 @@ local CombatTab1 = CombatTab:NewSection("Combat")
 local AutofarmTab = Window:NewTab("Autofarm")
 local AutofarmTab1 = AutofarmTab:NewSection("Autofarm")
 
+local MiscTab = Window:NewTab("Misc")
+local MiscTab1 = MiscTab:NewSection("Misc")
+
 --Toggles
 
 AbilityTab1:NewToggle("Inf Golden", "Use For Infinite Golden", function(state)
@@ -73,4 +76,23 @@ end)
 
 AutofarmTab1:NewButton("Farm Slapples", "Farm slapples Forever", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/9cxfguU6", true))()
+end)
+
+MiscTab1:NewButton("Bob :)", "Just Spawn Replica and kills you", function()
+    local args = {
+        [1] = true
+    }
+    
+    game:GetService("ReplicatedStorage").Duplicate:FireServer(unpack(args))
+    wait()
+    local args = {
+        [1] = game:GetService("Players").LocalPlayer.Character,
+        [2] = false
+    }
+    
+    game:GetService("ReplicatedStorage").HumanoidDied:FireServer(unpack(args))
+end)
+
+MiscTab1:NewButton("AntiMail", "Remove Mail pop up", function()
+    game.ReplicatedStorage.MailPopup:Destroy()
 end)
