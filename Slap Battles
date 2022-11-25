@@ -1,310 +1,76 @@
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "🔴BloodyHub🟥 | Slap Battles👏", HidePremium = false, SaveConfig = true, IntroText = "Bloody Hub" ,ConfigFolder = "🔴BloodyHub🟥"})
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Bloody Hub | Slap Battles👏", "BloodTheme")
 
---Values
-_G.Golden = true
-_G.Nogolden = true
-_G.Therock = true
-_G.GhostON = true
-_G.GhostOFF = true
-_G.ByPass = true
-_G.PhaseA = true
-_G.AntiTime = true
-_G.AntiMail = true
-_G.Bob = true
-_G.Royale = true
-_G.HitBox = true
-_G.Reach = true
-_G.AutoUno = true
-_G.FarmSlapples = true
-_G.Slapples = true
+--Tabs
 
+local AbilityTab = Window:NewTab("Ability")
+local AbilityTab1 = AbilityTab:NewSection("Ability")
 
---Functions
-function Golden()
-    local args = {
-        [1] = true
-    }
-    
-    game:GetService("ReplicatedStorage").Goldify:FireServer(unpack(args))
-end
+local CombatTab = Window:NewTab("Combat")
+local CombatTab1 = CombatTab:NewSection("Combat")
 
-function Therock()
-game:GetService("ReplicatedStorage").Rockmode:FireServer()
-end
+local AutofarmTab = Window:NewTab("Autofarm")
+local AutofarmTab1 = AutofarmTab:NewSection("Autofarm")
 
-function NoGolden()
-	local args = {
-	    [1] = false,
-	    [2] = BrickColor.new(1003)
-	}
-	
-	game:GetService("ReplicatedStorage").Goldify:FireServer(unpack(args))
-end
+--Toggles
 
-function GhostON()
-	game:GetService("ReplicatedStorage").Ghostinvisibilityactivated:FireServer()
-end
+AbilityTab1:NewToggle("Inf Golden", "Use For Infinite Golden", function(state)
+    if state then
+        local args = {
+            [1] = true
+        }
+        
+        game:GetService("ReplicatedStorage").Goldify:FireServer(unpack(args))        
+    else
+        local args = {
+            [1] = false,
+            [2] = BrickColor.new(1003)
+        }
+        
+        game:GetService("ReplicatedStorage").Goldify:FireServer(unpack(args))        
+    end
+end)
 
-function GhostOFF()
-	game:GetService("ReplicatedStorage").Ghostinvisibilitydeactivated:FireServer()
-end
+AbilityTab1:NewToggle("No CD rock", "no cooldown diamond", function(state)
+    if state then
+        game:GetService("ReplicatedStorage").Rockmode:FireServer()
+    else
+        game:GetService("ReplicatedStorage").Rockmode:FireServer()
+    end
+end)
 
-function Bypass()
-		local Namecall
-	Namecall = hookmetamethod(game, '__namecall', function(self, ...)
-  	 if getnamecallmethod() == 'FireServer' and tostring(self) == 'Ban' then
-  	     return
-  	 elseif getnamecallmethod() == 'FireServer' and tostring(self) == 'WalkSpeedChanged' then
-  	     return
- 	  elseif getnamecallmethod() == 'FireServer' and tostring(self) == 'AdminGUI' then
- 	      return
- 	  end
- 	  return Namecall(self, ...)
-	end)
-end
+AbilityTab1:NewToggle("Infinite Ghost", "If you hit someone, ghost still", function(state)
+    if state then
+        game:GetService("ReplicatedStorage").Ghostinvisibilityactivated:FireServer()
+    else
+        game:GetService("ReplicatedStorage").Ghostinvisibilitydeactivated:FireServer()
+    end
+end)
 
-function PhaseA()
-	game:GetService("ReplicatedStorage").PhaseA:FireServer()
-end
+--Button
 
-function AntiTime()
-	game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
-end
+AbilityTab1:NewButton("PhaseA", "Phase Glove No CD", function()
+    game:GetService("ReplicatedStorage").PhaseA:FireServer()
+end)
 
-function AntiMail()
-	game.ReplicatedStorage.MailPopup:Destroy()
-end
-
-function Bob()
-    local args = {
-        [1] = true
-    }
-    
-    game:GetService("ReplicatedStorage").Duplicate:FireServer(unpack(args))
-    wait()
-    local args = {
-        [1] = game:GetService("Players").LocalPlayer.Character,
-        [2] = false
-    }
-    
-    game:GetService("ReplicatedStorage").HumanoidDied:FireServer(unpack(args))
-end
-
-function Royale()
-    loadstring(
-                game:HttpGet("https://raw.githubusercontent.com/cheesynob39/Roblox-Scripts/main/Slap_Royale.lua"
-                    ))()
-end
-
-function HitBox()
-	loadstring(game:HttpGet(("https://gist.githubusercontent.com/stellar-4242/430ef3087d8d87eb306ca03e728ffbb8/raw/798429dd908b1f4471a1fa569ff62c5e5a93ec61/SLAP.LUA")))()
-end
-
-function Reach()
-	loadstring(game:HttpGet("https://pastebin.com/raw/jxS60JEF", true))()
-end
-
-function AutoUno()
+AbilityTab1:NewButton("Inf UNO", "Infinite unoreverse cant be turn off", function()
 	while wait(6) do
 		game:GetService("ReplicatedStorage").ReverseAbility:FireServer()
 	end
-end
+end)
 
-function FarmSlapples()
-	loadstring(game:HttpGet("https://pastebin.com/raw/9cxfguU6", true))()
-end
+CombatTab1:NewButton("Glove Reach", "like thick glove but better", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/jxS60JEF", true))()
+end)
 
-function Slapples()
-	loadstring(game:HttpGet("https://pastebin.com/raw/rYYpHvDG", true))()
-end
+CombatTab1:NewButton("HitBox Extender", "F A T people", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/jxS60JEF", true))()
+end)
 
---Tabs
-local AbilityTab = Window:MakeTab({
-	Name = "Ability",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
+AutofarmTab1:NewButton("take Slapples", "take slapples once", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/rYYpHvDG", true))()
+end)
 
-local CombatTab = Window:MakeTab({
-	Name = "Combat",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-
-local MiscTab = Window:MakeTab({
-	Name = "Misc",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-
-local FarmTab = Window:MakeTab({
-	Name = "AutoFarm",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-
-
-
---KeyBind
-AbilityTab:AddBind({
-	Name = "Golden [GodMode]",
-	Default = Enum.KeyCode.C,
-	Hold = false,
-	Callback = function()
-		_G.Golden = true
-        Golden()
-	end    
-})
-
-AbilityTab:AddBind({
-	Name = "Diamond [Use on Battle]",
-	Default = Enum.KeyCode.F,
-	Hold = false,
-	Callback = function()
-		_G.Therock = true
-        Therock()
-	end    
-})
-
-AbilityTab:AddBind({
-	Name = "UnGolden [BOB?!]",
-	Default = Enum.KeyCode.V,
-	Hold = false,
-	Callback = function()
-		_G.Nogolden = Values
-		NoGolden()
-	end    
-})
-
-AbilityTab:AddBind({
-	Name = "GhostOFF [now u can see me]",
-	Default = Enum.KeyCode.T,
-	Hold = false,
-	Callback = function()
-		_G.GhostOFF = Value
-		GhostOFF()
-	end    
-})
-
-AbilityTab:AddBind({
-	Name = "GhostON [and now u cant see me]",
-	Default = Enum.KeyCode.R,
-	Hold = false,
-	Callback = function()
-		_G.GhostON = Value
-		GhostON()
-	end    
-})
-
-AbilityTab:AddBind({
-	Name = "PhaseA [UNDERTALE]",
-	Default = Enum.KeyCode.Q,
-	Hold = false,
-	Callback = function()
-		_G.PhaseA = Value
-		PhaseA()
-	end    
-})
-
---Buttons
-
-AbilityTab:AddButton({
-	Name = "InfiniteUNO",
-	Callback = function()
-		_G.AutoUno = Value
-		AutoUno()
-  	end    
-})
-
-MiscTab:AddButton({
-	Name = "AntiCheat ByPass",
-	Callback = function()
-		_G.ByPass = Value
-		Bypass()
-  	end    
-})
-
-MiscTab:AddButton({
-	Name = "Move On timestop",
-	Callback = function()
-		_G.AntiTime = true
-		AntiTime()
-  	end    
-})
-
-MiscTab:AddButton({
-	Name = "AntiMail",
-	Callback = function()
-		_G.AntiMail = true
-		AntiMail()
-  	end    
-})
-
-MiscTab:AddButton({
-	Name = "Bob :)",
-	Callback = function()
-		_G.Bob = true
-		Bob()
-  	end    
-})
-
-MiscTab:AddButton({
-	Name = "Slap Royale Script",
-	Callback = function()
-      	_G.Royale = Value
-        Royale()
-  	end    
-})
-
-CombatTab:AddButton({
-	Name = "HitBox Extender",
-	Callback = function()
-		_G.HitBox = Value
-		HitBox()
-  	end    
-})
-
-CombatTab:AddButton({
-	Name = "Glove Reach",
-	Callback = function()
-		_G.Reach = Value
-		Reach()
-  	end    
-})
-
-FarmTab:AddButton({
-	Name = "AutoFarm Slapples",
-	Callback = function()
-		_G.FarmSlapples = Value
-		FarmSlapples()
-  	end    
-})
-
-
-FarmTab:AddButton({
-	Name = "Take Slapples",
-	Callback = function()
-		_G.Slapples = Value
-		Slapples()
-  	end    
-})
-
---Labels
-
-MiscTab:AddLabel("Bob Just spawn replica and kills you")
-
-MiscTab:AddLabel("Slap Royale Not Made by me")
-
-AbilityTab:AddLabel("InfiniteUNO cant be turned OFF")
-
-AbilityTab:AddLabel("And InfiniteUNO takes 6 seconds to start")
-
-FarmTab:AddLabel("AutoFarm Cant be Stopped")
-
-FarmTab:AddLabel("AutoFarm Take 10 seconds to start")
-
-
-
-
-OrionLib:Init()
+AutofarmTab1:NewButton("Farm Slapples", "Farm slapples Forever", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/9cxfguU6", true))()
+end)
