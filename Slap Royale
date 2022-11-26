@@ -12,6 +12,9 @@ local LocalPlayerTab1 = LocalPlayerTab:NewSection("LocalPlayer")
 local TeleportsTab = Window:NewTab("Teleports")
 local TeleportsTab1 = TeleportsTab:NewSection("Teleports")
 
+local VisualTab = Window:NewTab("Visual")
+local VisualTab1 = VisualTab:NewSection("Visual")
+
 --Buttons
 
 CombatTab1:NewButton("Glove Reach", "Thick in Royale :O", function()
@@ -24,6 +27,10 @@ end)
 
 CombatTab1:NewButton("AntiRagdoll", "hOw U SuRviVe?!?!", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/28qZ6YBD", true))()
+end)
+
+VisualTab1:NewButton("Visual", "SCP: 1487", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/WhXVUH7R", true))()
 end)
 
 LocalPlayerTab1:NewSlider("WalkSpeed", "Wally West", 60, 27, function(s) -- 500 (MaxValue) | 0 (MinValue)
