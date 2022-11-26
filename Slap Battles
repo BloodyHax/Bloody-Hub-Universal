@@ -100,3 +100,7 @@ end)
 MiscTab1:NewButton("AntiMail", "Remove Mail pop up", function()
     game.ReplicatedStorage.MailPopup:Destroy()
 end)
+
+AutofarmTab1:NewButton("Bob AutoFarmer", "Execute one time or get kicked", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/x0veDkJx", true))()
+end)
