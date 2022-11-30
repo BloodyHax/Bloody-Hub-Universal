@@ -1,70 +1,103 @@
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("BloodyHub | Slap Royale👏", "BloodTheme")
+loadstring(game:HttpGet("https://raw.githubusercontent.com/deeeity/mercury-lib/master/src.lua"))()
+local Mercury = loadstring(game:HttpGet("https://raw.githubusercontent.com/deeeity/mercury-lib/master/src.lua"))()
+local GUI = Mercury:Create{
+    Name = "BloodyHub | Slap Royale👏",
+    Size = UDim2.fromOffset(600, 400),
+    Theme = Mercury.Themes.Dark,
+    Link = "https://github.com/deeeity/mercury-lib"
+}
+
+--Values
+_G.Reach = true
+_G.Hitbox = true
+_G.Ragdoll = true
+_G.Cham = true
+_G.Rig = true
+
+--Functions
+function Reach()
+    loadstring(game:HttpGet("https://pastebin.com/raw/jxS60JEF", true))()
+end
+
+function Hitbox()
+    loadstring(game:HttpGet(("https://gist.githubusercontent.com/stellar-4242/430ef3087d8d87eb306ca03e728ffbb8/raw/798429dd908b1f4471a1fa569ff62c5e5a93ec61/SLAP.LUA")))()
+end
+
+function Ragdoll()
+    loadstring(game:HttpGet("https://pastebin.com/raw/28qZ6YBD", true))()
+end
+
+function Cham()
+    getgenv().enabled = true --Toggle on/off
+    getgenv().filluseteamcolor = false --Toggle fill color using player team color on/off
+    getgenv().outlineuseteamcolor = false --Toggle outline color using player team color on/off
+    getgenv().fillcolor = Color3.new(0, 0, 0) --Change fill color, no need to edit if using team color
+    getgenv().outlinecolor = Color3.new(255, 0, 0) --Change outline color, no need to edit if using team color
+    getgenv().filltrans = 0.5 --Change fill transparency
+    getgenv().outlinetrans = 0 --Change outline transparency
+    
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/zntly/highlight-esp/main/esp.lua"))()
+end
+
+function Rig()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/TheNuggetEater05/ekaMiffutSmodnaR/main/GlobalR6SkeletonESP.lua"))()
+
+    shared.BoneESP_Settings = {
+       Circle_Visible = false,
+       Circle_Radius = 3,
+       BoneESP_Color = Color3.fromRGB(255,255,255)
+    }
+end
 
 --Tabs
+local CombatTab = GUI:Tab{
+	Name = "Combat",
+	Icon = "rbxassetid://10732694360"
+}
 
-local CombatTab = Window:NewTab("Combat")
-local CombatTab1 = CombatTab:NewSection("Combat")
+local TeleportsTab = GUI:Tab{
+	Name = "Teleports",
+	Icon = "rbxassetid://1299973474"
+}
 
-local LocalPlayerTab = Window:NewTab("LocalPlayer")
-local LocalPlayerTab1 = LocalPlayerTab:NewSection("LocalPlayer")
-
-local TeleportsTab = Window:NewTab("Teleports")
-local TeleportsTab1 = TeleportsTab:NewSection("Teleports")
-
-local VisualTab = Window:NewTab("Visual")
-local VisualTab1 = VisualTab:NewSection("Visual")
+local VisualTab = GUI:Tab{
+	Name = "Visual",
+	Icon = "rbxassetid://9605261852"
+}
 
 --Buttons
+CombatTab:Button{
+	Name = "Glove Reach",
+	Description = nil,
+	Callback = function() Reach() end
+}
 
-CombatTab1:NewButton("Glove Reach", "Thick in Royale :O", function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/jxS60JEF", true))()
-end)
+CombatTab:Button{
+	Name = "Hitbox Extender",
+	Description = nil,
+	Callback = function() Hitbox() end
+}
 
-CombatTab1:NewButton("HitBox Extender", "everyone will be F A T", function()
-	loadstring(game:HttpGet(("https://gist.githubusercontent.com/stellar-4242/430ef3087d8d87eb306ca03e728ffbb8/raw/798429dd908b1f4471a1fa569ff62c5e5a93ec61/SLAP.LUA")))()
-end)
+CombatTab:Button{
+	Name = "AntiRagdoll",
+	Description = nil,
+	Callback = function() Ragdoll() end
+}
 
-CombatTab1:NewButton("AntiRagdoll", "hOw U SuRviVe?!?!", function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/28qZ6YBD", true))()
-end)
+VisualTab:Button{
+	Name = "Rig ESP",
+	Description = nil,
+	Callback = function() Hitbox() end
+}
 
-VisualTab1:NewButton("Visual", "SCP: 1487", function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/WhXVUH7R", true))()
-end)
+VisualTab:Button{
+	Name = "Players CHAM",
+	Description = nil,
+	Callback = function() Ragdoll() end
+}
 
-LocalPlayerTab1:NewSlider("WalkSpeed", "Wally West", 60, 27, function(s) -- 500 (MaxValue) | 0 (MinValue)
-    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
-end)
-
-LocalPlayerTab1:NewSlider("JumpPower", "Luigi? ONE JUMP MAN", 33, 70, function(s) -- 500 (MaxValue) | 0 (MinValue)
-    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
-end)
-
-TeleportsTab1:NewButton("School", "DONT GO TO HELL", function()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(510.656708, 88.4089737, -358.282562, -0.876530111, -3.19884252e-09, 0.481347054, 2.12978826e-08, 1, 4.54289228e-08, -0.481347054, 5.00714918e-08, -0.876530111)
-end)
-
-TeleportsTab1:NewButton("Desert", "*Terraria music*", function()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-694.061523, 22.9996567, -166.637695, 0.731338799, -1.38221612e-08, -0.682014346, 5.6484847e-08, 1, 4.03032558e-08, 0.682014346, -6.79988119e-08, 0.731338799)
-end)
-
-TeleportsTab1:NewButton("Math House", "pls no more math", function()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-530.440491, 84.4027405, 422.098114, 0.290409803, 1.61285598e-08, -0.956902385, 5.09629849e-08, 1, 3.23217009e-08, 0.956902385, -5.81531374e-08, 0.290409803)
-end)
-
-TeleportsTab1:NewButton("Volcano", "Estoy Hot ", function()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-259.425781, 29.914753, 492.356049, 0.85744524, 8.2656463e-08, 0.514575183, -4.84180376e-08, 1, -7.99507021e-08, -0.514575183, 4.36386287e-08, 0.85744524)
-end)
-
-TeleportsTab1:NewButton("Laboratory", "Breaking Bad", function()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(476.126831, 28.8435593, 327.430542, -0.227012262, 8.63228351e-08, 0.973891914, 3.91652328e-08, 1, -7.95076431e-08, -0.973891914, 2.00934931e-08, -0.227012262)
-end)
-
-TeleportsTab1:NewButton("Farm", "You want lab .-.", function()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(465.812744, 123.609451, 320.01535, 0.932049453, 6.25015728e-09, 0.362331152, -4.70129624e-09, 1, -5.15637888e-09, -0.362331152, 3.10257375e-09, 0.932049453)
-end)
-
-TeleportsTab1:NewButton("Bob's Cave", "new player: What the FU..", function()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(310.187286, -19.4109306, -377.029907, -0.374733537, 3.58008414e-08, -0.927132547, -3.3466091e-11, 1, 3.86281123e-08, 0.927132547, 1.45062771e-08, -0.374733537)
-end)
+TeleportsTab:Button{
+	Name = "no teleports cuz i didnt wanna put it now",
+	Description = nil,
+	Callback = function() end
+}
