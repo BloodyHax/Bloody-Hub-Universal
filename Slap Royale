@@ -28,25 +28,11 @@ function Ragdoll()
 end
 
 function Cham()
-    getgenv().enabled = true --Toggle on/off
-    getgenv().filluseteamcolor = false --Toggle fill color using player team color on/off
-    getgenv().outlineuseteamcolor = false --Toggle outline color using player team color on/off
-    getgenv().fillcolor = Color3.new(0, 0, 0) --Change fill color, no need to edit if using team color
-    getgenv().outlinecolor = Color3.new(255, 0, 0) --Change outline color, no need to edit if using team color
-    getgenv().filltrans = 0.5 --Change fill transparency
-    getgenv().outlinetrans = 0 --Change outline transparency
-    
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/zntly/highlight-esp/main/esp.lua"))()
+	loadstring(game:HttpGet("https://pastebin.com/raw/RzAkBf8E", true))()
 end
 
 function Rig()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/TheNuggetEater05/ekaMiffutSmodnaR/main/GlobalR6SkeletonESP.lua"))()
-
-    shared.BoneESP_Settings = {
-       Circle_Visible = false,
-       Circle_Radius = 3,
-       BoneESP_Color = Color3.fromRGB(255,255,255)
-    }
+	loadstring(game:HttpGet("https://pastebin.com/raw/upNJ98WU", true))()
 end
 
 --Tabs
@@ -87,13 +73,13 @@ CombatTab:Button{
 VisualTab:Button{
 	Name = "Rig ESP",
 	Description = nil,
-	Callback = function() Hitbox() end
+	Callback = function() Rig() end
 }
 
 VisualTab:Button{
 	Name = "Players CHAM",
 	Description = nil,
-	Callback = function() Ragdoll() end
+	Callback = function() Cham() end
 }
 
 TeleportsTab:Button{
