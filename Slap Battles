@@ -1,106 +1,203 @@
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Bloody Hub | Slap Battles👏", "BloodTheme")
+loadstring(game:HttpGet("https://raw.githubusercontent.com/deeeity/mercury-lib/master/src.lua"))()
+local Mercury = loadstring(game:HttpGet("https://raw.githubusercontent.com/deeeity/mercury-lib/master/src.lua"))()
+local GUI = Mercury:Create{
+    Name = "Bloody Hub | Slap Battles👏",
+    Size = UDim2.fromOffset(600, 400),
+    Theme = Mercury.Themes.Dark,
+    Link = "https://github.com/deeeity/mercury-lib"
+}
 
---Tabs
+--Values
+_G.Ghost = true
+_G.Ghosty = true
+_G.Reach = true
+_G.Hitbox = true
+_G.Ragdoll = true
+_G.Golden = true
+_G.Goldeny = true
+_G.Rock = true
+_G.Rocky = true
+_G.PhaseB = true
+_G.UNO = true
+_G.bob = true
+_G.mail = true
+_G.FApple = true
+_G.TApple = true
 
-local AbilityTab = Window:NewTab("Ability")
-local AbilityTab1 = AbilityTab:NewSection("Ability")
+--Functions
+function Ghost()
+    game:GetService("ReplicatedStorage").Ghostinvisibilityactivated:FireServer()   
+end
 
-local CombatTab = Window:NewTab("Combat")
-local CombatTab1 = CombatTab:NewSection("Combat")
+function Ghosty()
+    game:GetService("ReplicatedStorage").Ghostinvisibilitydeactivated:FireServer()
+end
 
-local AutofarmTab = Window:NewTab("Autofarm")
-local AutofarmTab1 = AutofarmTab:NewSection("Autofarm")
-
-local MiscTab = Window:NewTab("Misc")
-local MiscTab1 = MiscTab:NewSection("Misc")
-
---Toggles
-
-AbilityTab1:NewToggle("Inf Golden", "Use For Infinite Golden", function(state)
-    if state then
-        local args = {
-            [1] = true
-        }
-        
-        game:GetService("ReplicatedStorage").Goldify:FireServer(unpack(args))        
-    else
-        local args = {
-            [1] = false,
-            [2] = BrickColor.new(1003)
-        }
-        
-        game:GetService("ReplicatedStorage").Goldify:FireServer(unpack(args))        
-    end
-end)
-
-AbilityTab1:NewToggle("No CD rock", "no cooldown diamond", function(state)
-    if state then
-        game:GetService("ReplicatedStorage").Rockmode:FireServer()
-    else
-        game:GetService("ReplicatedStorage").Rockmode:FireServer()
-    end
-end)
-
-AbilityTab1:NewToggle("Infinite Ghost", "If you hit someone, ghost still", function(state)
-    if state then
-        game:GetService("ReplicatedStorage").Ghostinvisibilityactivated:FireServer()
-    else
-        game:GetService("ReplicatedStorage").Ghostinvisibilitydeactivated:FireServer()
-    end
-end)
-
---Button
-
-AbilityTab1:NewButton("PhaseA", "Phase Glove No CD", function()
-    game:GetService("ReplicatedStorage").PhaseA:FireServer()
-end)
-
-AbilityTab1:NewButton("Inf UNO", "Infinite unoreverse cant be turn off", function()
-	while wait(6) do
-		game:GetService("ReplicatedStorage").ReverseAbility:FireServer()
-	end
-end)
-
-CombatTab1:NewButton("Glove Reach", "like thick glove but better", function()
+function Reach()
     loadstring(game:HttpGet("https://pastebin.com/raw/jxS60JEF", true))()
-end)
+end
 
-CombatTab1:NewButton("HitBox Extender", "F A T people", function()
-	loadstring(game:HttpGet(("https://gist.githubusercontent.com/stellar-4242/430ef3087d8d87eb306ca03e728ffbb8/raw/798429dd908b1f4471a1fa569ff62c5e5a93ec61/SLAP.LUA")))()
-end)
+function Hitbox()
+    loadstring(game:HttpGet(("https://gist.githubusercontent.com/stellar-4242/430ef3087d8d87eb306ca03e728ffbb8/raw/798429dd908b1f4471a1fa569ff62c5e5a93ec61/SLAP.LUA")))()
+end
 
-CombatTab1:NewButton("AntiRagdoll", "Become Invencible", function()
+function Ragdoll()
     loadstring(game:HttpGet("https://pastebin.com/raw/28qZ6YBD", true))()
-end)
+end
 
-AutofarmTab1:NewButton("take Slapples", "take slapples once", function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/rYYpHvDG", true))()
-end)
-
-AutofarmTab1:NewButton("Farm Slapples", "Farm slapples Forever", function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/9cxfguU6", true))()
-end)
-
-MiscTab1:NewButton("Bob :)", "Just Spawn Replica and kills you", function()
+function Golden()
     local args = {
         [1] = true
     }
     
-    game:GetService("ReplicatedStorage").Duplicate:FireServer(unpack(args))
-    wait()
+    game:GetService("ReplicatedStorage").Goldify:FireServer(unpack(args))  
+end
+
+function Goldeny()
     local args = {
-        [1] = game:GetService("Players").LocalPlayer.Character,
-        [2] = false
+        [1] = false,
+        [2] = BrickColor.new(1003)
     }
     
-    game:GetService("ReplicatedStorage").HumanoidDied:FireServer(unpack(args))
-end)
+    game:GetService("ReplicatedStorage").Goldify:FireServer(unpack(args))
+end
 
-MiscTab1:NewButton("AntiMail", "Remove Mail pop up", function()
-    game.ReplicatedStorage.MailPopup:Destroy()
-end)
+function Rock()
+    game:GetService("ReplicatedStorage").Rockmode:FireServer()
+end
 
-AutofarmTab1:NewButton("Bob AutoFarmer", "Execute one time or get kicked", function()
+function Rocky()
+    game:GetService("ReplicatedStorage").Rockmode:FireServer()
+end
+
+function PhaseB()
+    game:GetService("ReplicatedStorage").PhaseA:FireServer()
+end
+
+function UNO()
+    while wait(6) do
+		game:GetService("ReplicatedStorage").ReverseAbility:FireServer()
+	end
+end
+
+function bob()
     loadstring(game:HttpGet("https://pastebin.com/raw/x0veDkJx", true))()
-end)
+end
+
+function mail()
+    game.ReplicatedStorage.MailPopup:Destroy()
+end
+
+function TApple()
+    loadstring(game:HttpGet("https://pastebin.com/raw/rYYpHvDG", true))()
+end
+
+function FApple()
+    loadstring(game:HttpGet("https://pastebin.com/raw/9cxfguU6", true))()
+end
+
+--Tabs
+local AbilityTab = GUI:Tab{
+	Name = "Abilitys",
+	Icon = "rbxassetid://11012215782"
+}
+
+local CombatTab = GUI:Tab{
+	Name = "Combat",
+	Icon = "rbxassetid://11451415208"
+}
+
+local AutoFarmTab = GUI:Tab{
+	Name = "AutoFarm",
+	Icon = "rbxassetid://363057307"
+}
+
+local MiscTab = GUI:Tab{
+	Name = "Misc",
+	Icon = "rbxassetid://7866490119"
+}
+
+--Buttons
+AbilityTab:Button{
+	Name = "Infinite Ghost [ON]",
+	Description = nil,
+	Callback = function() Ghost() end
+}
+
+AbilityTab:Button{
+	Name = "Infinite Ghost [OFF]",
+	Description = nil,
+	Callback = function() Ghosty() end
+}
+
+CombatTab:Button{
+	Name = "Glove Reach",
+	Description = nil,
+	Callback = function() Reach() end
+}
+
+CombatTab:Button{
+	Name = "Hitbox Extender",
+	Description = nil,
+	Callback = function() Hitbox() end
+}
+
+CombatTab:Button{
+	Name = "AntiRagdoll",
+	Description = nil,
+	Callback = function() Ragdoll() end
+}
+
+AbilityTab:Button{
+	Name = "Infinite Golden [ON]",
+	Description = nil,
+	Callback = function() Golden() end
+}
+
+AbilityTab:Button{
+	Name = "Infinite Golden [OFF]",
+	Description = nil,
+	Callback = function() Goldeny() end
+}
+
+AbilityTab:Button{
+	Name = "Infinite Diamond [ON]",
+	Description = nil,
+	Callback = function() Rock() end
+}
+
+AbilityTab:Button{
+	Name = "Infinite UNO [CANT TURN OFF]",
+	Description = nil,
+	Callback = function() Rocky() end
+}
+
+AbilityTab:Button{
+	Name = "PhaseA [NO CD]",
+	Description = nil,
+	Callback = function() PhaseB() end
+}
+
+AutoFarmTab:Button{
+	Name = "Bob Autofarm",
+	Description = nil,
+	Callback = function() bob() end
+}
+
+MiscTab:Button{
+	Name = "Remove MailPopup",
+	Description = nil,
+	Callback = function() mail() end
+}
+
+AutoFarmTab:Button{
+	Name = "Take Slapples [ONCE]",
+	Description = nil,
+	Callback = function() TApple() end
+}
+
+AutoFarmTab:Button{
+	Name = "Farm Slapples [FOREVER]",
+	Description = nil,
+	Callback = function() FApple() end
+}
