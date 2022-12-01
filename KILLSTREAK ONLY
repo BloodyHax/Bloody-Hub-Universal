@@ -78,13 +78,13 @@ CombatTab:Button{
 VisualTab:Button{
 	Name = "Rig ESP",
 	Description = nil,
-	Callback = function() Hitbox() end
+	Callback = function() Rig() end
 }
 
 VisualTab:Button{
 	Name = "Players CHAM",
 	Description = nil,
-	Callback = function() Doll() end
+	Callback = function() Cham() end
 }
 
 streak:Button{
