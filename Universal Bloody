@@ -13,3 +13,6 @@ end
 if game.PlaceId == 9431156611 then
 loadstring(game:HttpGet("https://raw.githubusercontent.com/BloodyHax/Bloody-Hub-Universal/main/Slap%20Royale", true))()
 end
+if game.PlaceId == 11520107397 then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/BloodyHax/Bloody-Hub-Universal/main/KILLSTREAK%20ONLY", true))()
+end
