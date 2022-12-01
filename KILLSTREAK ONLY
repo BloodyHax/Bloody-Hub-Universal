@@ -1,0 +1,100 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/deeeity/mercury-lib/master/src.lua"))()
+local Mercury = loadstring(game:HttpGet("https://raw.githubusercontent.com/deeeity/mercury-lib/master/src.lua"))()
+local GUI = Mercury:Create{
+    Name = "Bloody Hub",
+    Size = UDim2.fromOffset(600, 400),
+    Theme = Mercury.Themes.Dark,
+    Link = "https://github.com/deeeity/mercury-lib"
+}
+
+--Values
+_G.Reach = true
+_G.Hitbox = true
+_G.Doll = true
+_G.Cham = true
+_G.Rig = true
+_G.FK = true
+
+--Functions
+function Reach()
+    loadstring(game:HttpGet("https://pastebin.com/raw/jxS60JEF", true))()
+end
+
+function Hitbox()
+    loadstring(game:HttpGet(("https://gist.githubusercontent.com/stellar-4242/430ef3087d8d87eb306ca03e728ffbb8/raw/798429dd908b1f4471a1fa569ff62c5e5a93ec61/SLAP.LUA")))()
+end
+
+function Doll()
+    loadstring(game:HttpGet("https://pastebin.com/raw/28qZ6YBD", true))()
+end
+
+function Cham()
+    loadstring(game:HttpGet("https://pastebin.com/raw/RzAkBf8E", true))()
+end
+
+function Rig()
+    loadstring(game:HttpGet("https://pastebin.com/raw/upNJ98WU", true))()
+end
+
+function FK()
+    game.Players.LocalPlayer.PlayerGui.Kills.Frame.TextLabel.Text = 'INF'
+end
+
+--Tabs
+local CombatTab = GUI:Tab{
+	Name = "Combat",
+	Icon = "rbxassetid://9886261794"
+}
+
+local VisualTab = GUI:Tab{
+	Name = "Visual",
+	Icon = "rbxassetid://10427679967"
+}
+
+local streak = GUI:Tab{
+	Name = "KS Pack",
+	Icon = "rbxassetid://9687561603"
+}
+
+--Buttons
+CombatTab:Button{
+	Name = "Glove Reach",
+	Description = nil,
+	Callback = function() Reach() end
+}
+
+CombatTab:Button{
+	Name = "Hitbox Extender",
+	Description = nil,
+	Callback = function() Hitbox() end
+}
+
+CombatTab:Button{
+	Name = "AntiRagdoll",
+	Description = nil,
+	Callback = function() Doll() end
+}
+
+VisualTab:Button{
+	Name = "Rig ESP",
+	Description = nil,
+	Callback = function() Hitbox() end
+}
+
+VisualTab:Button{
+	Name = "Players CHAM",
+	Description = nil,
+	Callback = function() Doll() end
+}
+
+streak:Button{
+	Name = "Fake INF kills",
+	Description = nil,
+	Callback = function() FK() end
+}
+
+streak:Button{
+	Name = "This part is at [BETA]",
+	Description = nil,
+	Callback = function() end
+}
