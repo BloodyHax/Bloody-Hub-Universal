@@ -16,3 +16,6 @@ end
 if game.PlaceId == 11520107397 then
 loadstring(game:HttpGet("https://raw.githubusercontent.com/BloodyHax/Bloody-Hub-Universal/main/KILLSTREAK%20ONLY", true))()
 end
+if game.PlaceId == 3431407618 then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/BloodyHax/Bloody-Hub-Universal/main/Isle%20Krypton%20Bypass", true))()
+end
