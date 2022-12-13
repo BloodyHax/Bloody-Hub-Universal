@@ -1,0 +1,42 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("BloodyHub | Creeper Chaos", "BloodTheme")
+
+--Tabs
+local LocalPlayer = Window:NewTab("LocalPlayer")
+local LocalPlayer1 = LocalPlayer:NewSection("LocalPlayer Stuff")
+
+local Visual = Window:NewTab("Visual")
+local Visual1 = Visual:NewSection("Visual Stuff")
+
+local Utility = Window:NewTab("Utility")
+local Utility1 = Utility:NewSection("Utility Stuff")
+
+--Sliders
+LocalPlayer1:NewSlider("WalkSpeed", "dont be so fast '-' ", 1000, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+LocalPlayer1:NewSlider("JumpPower", "Wa hoo", 1000, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+--Buttons
+Utility1:NewButton("FullBright", "MY EYES", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/kESXTjjm", true))()
+end)
+
+Utility1:NewButton("Free Camera", "Get Hit on BALLS", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/ZsnybYTK", true))()
+end)
+
+Utility1:NewButton("Infinite Jump", "Luigi", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/ZXcsxnUz", true))()
+end)
+
+Visual1:NewButton("Player CHAM", "Simple ESP", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/rt93s1N9", true))()
+end)
+
+Visual1:NewButton("Rig ESP", "Bones... YES BONES", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/YT4dWEzv", true))()
+end)
