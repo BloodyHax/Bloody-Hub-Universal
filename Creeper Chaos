@@ -11,6 +11,9 @@ local Visual1 = Visual:NewSection("Visual Stuff")
 local Utility = Window:NewTab("Utility")
 local Utility1 = Utility:NewSection("Utility Stuff")
 
+local Combat = Window:NewTab("Combat")
+local Combat1 = Combat:NewSection("Combat Stuff")
+
 --Sliders
 LocalPlayer1:NewSlider("WalkSpeed", "dont be so fast '-' ", 1000, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
@@ -33,10 +36,19 @@ Utility1:NewButton("Infinite Jump", "Luigi", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/ZXcsxnUz", true))()
 end)
 
-Visual1:NewButton("Player CHAM", "Simple ESP", function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/rt93s1N9", true))()
+Combat1:NewButton("Reach Weapon", "Big FAT Sword", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/DpTUPyv9", true))()
 end)
 
-Visual1:NewButton("Rig ESP", "Bones... YES BONES", function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/YT4dWEzv", true))()
+Combat1:NewButton("Hitbox Extender", "F A T People", function()
+    loadstring(game:HttpGet(("https://gist.githubusercontent.com/stellar-4242/430ef3087d8d87eb306ca03e728ffbb8/raw/798429dd908b1f4471a1fa569ff62c5e5a93ec61/SLAP.LUA")))()
+end)
+
+--Toggles
+Visual1:NewToggle("Player CHAM", "Everyon is Bloody...", function(state)
+    if state then
+        loadstring(game:HttpGet("https://pastebin.com/raw/rt93s1N9", true))()
+    else
+        loadstring(game:HttpGet("https://pastebin.com/raw/32UD7JK4", true))()
+    end
 end)
